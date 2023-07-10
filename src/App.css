@@ -1,17 +1,36 @@
+.gray {
+  filter: grayscale(100%);
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #26a69a; /* Use the same color as the progress bar */
+  font-family: Arial, sans-serif; /* Use a preferred font-family */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
 .image-container {
   position: relative;
-  display: inline-block;
 }
 
 .image {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: 5px;
   background-color: #acece6; /* Progress bar background color */
@@ -19,5 +38,7 @@
 
 .progress-bar-inner {
   height: 100%;
+  width: 0;
   background-color: #26a69a; /* Progress bar foreground color */
+  transition: width 0.3s ease-in-out; /* Transition animation for progress bar */
 }

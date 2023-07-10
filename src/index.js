@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ProgressBar from "./App";
+import Grid from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProgressBar />
+    <Grid />
   </React.StrictMode>,
   document.getElementById("root")
 );

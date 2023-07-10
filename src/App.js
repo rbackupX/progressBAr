@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-const ProgressBar = () => {
-  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const fetchProgress = () => {
-      const newProgress = Math.floor(Math.random() * 101); // Generate random progress between 0 and 100
-      setProgress(newProgress);
-    };
+const newimages = [
+  { src: require("./images/desktop-high-res.jpg"), progress: 90 },
+  { src: require("./images/desktop-high-res.jpg"), progress: 0 },
+  { src: require("./images/enterprise-high-res.jpg"), progress: 50 },
+  { src: require("./images/mobile-high-res.jpg"), progress: 50 },
+];
 
-    const interval = setInterval(fetchProgress, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
+const Grid = () => {
   return (
-    <div className="image-container">
-      <img
-        src="https://c3.staticflickr.com/3/2917/14333867272_acc4372727_b.jpg"
-        alt="Image"
-        className="image"
-      />
-      <div className="progress-bar">
-        <div
-          className="progress-bar-inner"
-          style={{ width: `${progress}%` }}
-        ></div>
-      </div>
+    <div className="image-grid">
+      {newimages.map((image, index) => (
+        <div className="image-container" key={index}>
+          <img
+            src={image.src}
+            alt={`Image ${index + 1}`}
+            className={`image ${image.progress === 0 ? "gray" : ""}`}
+          />
+          <div className="progress-bar">
+            <div
+              className="progress-bar-inner"
+              style={{ width: `${image.progress}%` }}
+            ></div>
+          </div>
+          <div className="percentage">{`${image.progress}%`}</div>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default ProgressBar;
+export default Grid;
