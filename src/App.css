@@ -1,0 +1,23 @@
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #acece6; /* Progress bar background color */
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #26a69a; /* Progress bar foreground color */
+}
